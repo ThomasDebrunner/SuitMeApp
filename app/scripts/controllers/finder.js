@@ -3,7 +3,7 @@
 angular.module('suitMeApp').controller('FinderController', ['$scope', '$http', '$q', function($scope, $http, $q){
 
 
-var gCategories = ['guertel', 'jacke', 'hemd', 'sakko', 'hose', 'schuh', 'socke'];
+var gCategories = ['belt', 'jacket', 'shirt', 'coat', 'trousers', 'shoe', 'socks'];
 
 var updateDeleteId = function(articleId){
     var localVar;
