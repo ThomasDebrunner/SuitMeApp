@@ -3,6 +3,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+body{
+  background: url('/images/back.jpg');
+  background-size: cover;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -12,6 +17,32 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 body {
   padding: 0;
+}
+
+.logo {
+  width: 100%;
+  text-align: center;
+}
+
+.logo > img{
+  display: inline-block;
+  max-width: 300px;
+
+}
+
+
+.intro-description{
+  margin-top: 30px;
+  margin-bottom: 200px;
+  max-width: 500px;
+  background: #FFFFFF;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  font-family: "Helvetica Neue", "Tahoma", "Geneva", sans-serif;
+  font-weight: 200;
+  font-size: 40px;
+
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -24,7 +55,7 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #222;
   margin-bottom: 10px;
 
   /* Make the masthead heading the same height as the navigation */
@@ -40,7 +71,8 @@ body {
 .footer {
   padding-top: 19px;
   color: #777;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #222;
+
 }
 
 .container-narrow > hr {
@@ -90,17 +122,20 @@ body {
   }
 }
 
+.class-title{
+  font-family: "Helvetica Neue", "Tahoma", "Geneva", sans-serif;
+  font-weight: 200;
+  font-size: 32px;
+}
 
 .class-container {
 
   text-align: center;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
   border: 1px solid #EEE;
   width: 300px;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  margin: 2px;
+  background: #FFFFFF;
+  display: inline-block;
 
   & > img{
     display: block;
@@ -115,7 +150,7 @@ body {
     margin-top: -300px;
     z-index: 1000;
     position: relative;
-    background: red;
+    background: #e51f6e;
     opacity: 0;
     transition: opacity 0.2s;
 
@@ -127,11 +162,40 @@ body {
     .class-container-cover-button{
       opacity: 1;
       top: 70px;
-      font-size: 2em;
+       font-family: "Helvetica Neue", "Tahoma", "Geneva", sans-serif;
+      font-weight: 200;
+      font-size: 3em;
       position: relative;
     }
   }
 
-
 }
 
+.article-row{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.footer{
+  margin-top: 20px;
+}
+
+.btn-enter{
+  width: 100%;
+  font-weight: bold;
+}
+
+.small-logo{
+  position: fixed;
+  left: 50px;
+  top: 50px;
+  width: 150px;
+  height: 150px;
+
+  &>img{
+    width: 150px;
+    height: 150px;
+  }
+}
