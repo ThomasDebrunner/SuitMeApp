@@ -3,7 +3,14 @@
 angular.module('suitMeApp').controller('FinderController', ['$scope', '$http', '$q', function($scope, $http, $q){
 
 
-var gCategories = ['belt', 'jacket', 'shirt', 'coat', 'trousers', 'shoe', 'socks'];
+var gCategories = {
+    'belt' : [ 'belt','guertel'], 
+    'jacket': ['coat', 'mantel','jacket'], 
+    'shirt': ['shirt','hemd'], 
+    'trousers': ['trousers', 'pants', 'hosen'], 
+    'shoe': ['shoes', 'schuhe'], 
+    'socks': ['socks','socken']
+    };
 
 var updateDeleteId = function(articleId){
     var localVar;
@@ -60,26 +67,33 @@ var createOrRankByArticle = function(curArticle){
    if (debug == 1) console.log(concatCategories);
    //Append Category
    var categoryFound = 0;
+
+   for (var property in gCategories) {
+        if (gCategories.hasOwnProperty(property)) {
+            if (new RegExp(gCategories[property].join("|")).test(concatCategories))
+            {
+                if (debug == 1) console.log(categoryName);
+                curCategory = property;
+            }
+        }
+    }  
+/*
    gCategories.forEach(function( categoryName ){
-       if (concatCategories.search(categoryName) >= 0)
-       {
-           if (debug == 1) console.log(categoryName);
-           curCategory = categoryName;
-       }
-   });
+       
+   });*/
    //Is already in globalArticles?
    if (categoryFound >= 0){
        var id = curArticle['data']['id'];
-       var alreadyExists = 0;
+       var alreadyExists = false;
        $scope.globalArticles.forEach(function(gArticle){
            if (id == gArticle['id'])
                {
-                   alreadyExists = 1;
+                   alreadyExists = true;
                    incrementRank(id);
                    if (debug == 1) console.log('already exists');
                }
        });
-       if (alreadyExists == 0)
+       if (alreadyExists == false)
        {
            curArticle['data']['ourCategory'] = curCategory;
            curArticle['data']['rank'] = 1;
