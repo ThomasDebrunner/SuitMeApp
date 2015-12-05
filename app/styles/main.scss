@@ -70,7 +70,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 1000px;
   }
 
   /* Remove the padding we set earlier */
@@ -97,30 +97,38 @@ body {
   display: block;
   margin-right: auto;
   margin-left: auto;
-  border: 1px solid #CCC;
-  width: 200px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  border: 1px solid #EEE;
+  width: 300px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 
   & > img{
     display: block;
     margin-right: auto;
     margin-left: auto;
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 300px;
+    max-height: 300px;
 
   }
   .class-container-cover {
-    border: 1px solid red;
-    height: 200px;
-    margin-top: -200px;
+    height: 300px;
+    margin-top: -300px;
     z-index: 1000;
     position: relative;
     background: red;
     opacity: 0;
+    transition: opacity 0.2s;
 
     &:hover{
       opacity: 0.75;
+      cursor: pointer;
+    }
+
+    .class-container-cover-button{
+      opacity: 1;
+      top: 70px;
+      font-size: 2em;
+      position: relative;
     }
   }
 
