@@ -6,7 +6,7 @@ angular.module('suitMeApp').controller('FinderController', ['$scope', '$http', '
 var gCategories = ['belt', 'jacket', 'shirt', 'coat', 'trousers', 'shoe', 'socks'];
 
 var updateDeleteId = function(articleId){
-    var localVar;
+   console.log(articleId); 
 };
 
 
@@ -32,7 +32,6 @@ $scope.testFunction = function(){
                    recommondationIds.push(recomend['id']);
                 });
                 console.log(recommondationIds);
-
                 //Add all recommondations
                 recommondationIds.forEach(function(recomID){
                     console.log(recomID);
@@ -46,8 +45,6 @@ $scope.testFunction = function(){
             {}
             
        })
-
-
     });
 
 }

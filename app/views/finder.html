@@ -30,7 +30,7 @@
 		<div class="class-container class-accessories" ng-repeat="item in globalArticles | filter:{ourCategory:'belt'} | limitTo:1">
 			<span class="class-title">Accessory</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
-			<div class="class-container-cover">
+			<div class="class-container-cover" ng-click="updateDeleteId({{item.id}})">
 				<div class="class-container-cover-button">Never ever!</div>
 			</div>
 		</div>
