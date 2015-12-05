@@ -3,6 +3,8 @@
 angular.module('suitMeApp').controller('FinderController', ['$scope', '$http', '$q', function($scope, $http, $q){
 
 
+var gCategories = ['guertel', 'jacke', 'hemd', 'sakko', 'hose', 'schuh', 'socke'];
+
 var updateDeleteId = function(articleId){
     var localVar;
 
@@ -42,7 +44,18 @@ var getArticle = function(id){
         });
 }
 
+var incrementRank = function (id){
+    ourObjects.foreach( function(article){
+        if (article['id'] == id)
+        {
+            article['rank']++;
+        }
+    })
+}
+
 $scope.testCaption='HELLO WORLD'
+
+$scope.globalArticles = [];
 
 //==================== Init allClasses
 var art1 = getArticle('K4452D00F-O11');
@@ -50,25 +63,50 @@ var art2 = getArticle('SE622D0I1-K11');
 var art3 = getArticle('SE622A07M-C12');
 var art4 = getArticle('PI912A06N-802');
 var art5 = getArticle('PI922G01B-Q11');
+var art6 = getArticle('PI922G01B-Q11');
 var art6 = getArticle('BB182F003-C11');
 
 $q.all([art1, art2, art3, art4, art5, art6]).then(function(arrayOfResult)
 {
-   arrayOfResult.forEach(function(res){
+   arrayOfResult.forEach(function(initArticle){
         //==================== Put in correct Category
+        var curCategory = '';
         var concatCategories = '';
-        res['data']['categoryKeys'].forEach(function( className ){
+        initArticle['data']['categoryKeys'].forEach(function( className ){
             concatCategories = concatCategories.concat(className);
             });
         console.log(concatCategories);
-        var found = concatCategories.search('shirt')
-        console.log(found);
-
-
-
-
-
+        //Append Category
+        var categoryFound = 0;
+        gCategories.forEach(function( categoryName ){
+            if (concatCategories.search(categoryName) >= 0)
+            {
+                console.log(categoryName);
+                curCategory = categoryName;
+            }
         });
+        if (categoryFound >= 0){
+            //Is already in ourObjects?
+            var id = initArticle['data']['id'];
+            var alreadyExists = 0;
+            $scope.globalArticles.forEach(function(gArticle){
+                if (id == gArticle['id'])
+                    {
+                        alreadyExists = 1;
+                        incrementRank(id);
+                        console.log('already exists');
+                    }
+            });
+            if (alreadyExists == 0)
+            {
+                initArticle['data']['ourCategory'] = curCategory;
+                initArticle['data']['rank'] = 1;
+                $scope.globalArticles.push(initArticle['data']);
+            }
+
+         }
+         });
+     console.log($scope.globalArticles);
 });
 
 
