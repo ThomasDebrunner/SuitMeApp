@@ -23,7 +23,9 @@ $scope.testFunction = function(){
     var id = 'K4452D00F-O11';
     deleteArticleById(id);
     //////Calculate Rank
-    gCategories.forEach(function(curCategory){
+    var catigorieList = Object.keys(gCategories);
+    console.log(catigorieList);
+    catigorieList.forEach(function(curCategory){
        //Get top article
        var topArticleId = getTopArticle(curCategory);
        if (debug == 1) console.log(topArticleId);
@@ -166,6 +168,12 @@ var getTopArticle = function(categoryName){
     else return 0;
 }
 
+$scope.showRank = function()
+{
+    $scope.globalArticles.forEach(function(article){
+        console.log(article['rank']);
+    });
+}
 
 ////////////////////////////////////////
 ///// INIT
