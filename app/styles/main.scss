@@ -89,3 +89,41 @@ body {
     border-bottom: 0;
   }
 }
+
+
+.class-container {
+
+  text-align: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid #CCC;
+  width: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  & > img{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 200px;
+    max-height: 200px;
+
+  }
+  .class-container-cover {
+    border: 1px solid red;
+    height: 200px;
+    margin-top: -200px;
+    z-index: 1000;
+    position: relative;
+    background: red;
+    opacity: 0;
+
+    &:hover{
+      opacity: 0.75;
+    }
+  }
+
+
+}
+
