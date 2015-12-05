@@ -11,38 +11,71 @@ var updateDeleteId = function(articleId){
 
 
 $scope.testFunction = function(){
+    var debug = 1;
     //Delete by id 
-    var id = 'SE622A08M-O12';
+    var id = 'K4452D00F-O11';
     deleteArticleById(id);
-    console.log($scope.allClasses);
-    var allRecommendations;
-    var promis1 = getRecommendations('SE622A08M-O12');
-    var promis2 = getRecommendations('OS322O02I-A11');
+    //////Calculate Rank
+    gCategories.forEach(function(curCategory){
+       //Get top article
+       var topArticleId = getTopArticle(curCategory);
+       if (debug == 1) console.log(topArticleId);
+       
+       //Get recommendations for it
+       var promis = getRecommendations(topArticleId);
+       var recommondationIds = [];
+       $q.all([promis]).then(function(arrayOfResult)
+       {
+           //==================== increment rank for each item
+           try{
+                arrayOfResult[0]['data'].forEach(function(recomend){
+                   recommondationIds.push(recomend['id']);
+                });
+                console.log(recommondationIds);
 
-    $q.all([promis1, promis2]).then(function(arrayOfResult)
-    {
-        //==================== increment rank for each item
-        console.log(arrayOfResult);
-    })
+                //Add all recommondations
+                recommondationIds.forEach(function(recomID){
+                    console.log(recomID);
+                    getArticle(recomID).then(function(article){
+                        console.log(article['data']);
+                        createOrRankByArticle(article);
+                        console.log($scope.globalArticles);
+                    });
+                });
+            } catch (e)
+            {}
+            
+       })
+
+
+    });
+
 }
 
 
 var getRecommendations = function(id){
+    if (id == 0) return 0;
     var myUrl = "https://api.zalando.com/recommendations/";
     myUrl = myUrl.concat(id);
-    console.log(myUrl);
     return $http({
         methode: 'GET',
         url:     myUrl,
         });
 }
 
+var getRecommendationIds = function(id){
+    var recommendations = getRecommendations(id);
+    var ids = [];
+    recommendations.forEach(function(recomend){
+        ids.push(recomend['id']);
+    })
+    return ids;
+}
 
 
 var getArticle = function(id){
     var myUrl = "https://api.zalando.com/articles/";
     myUrl = myUrl.concat(id);
-    console.log(myUrl);
     return $http({
         methode: 'GET',
         url:     myUrl,
@@ -99,10 +132,28 @@ var incrementRank = function (id){
 }
 
 var deleteArticleById = function(id){
-
+    var i = $scope.globalArticles.length;
+    while(i--){
+        if ($scope.globalArticles[i] && $scope.globalArticles[i]['id'] == id)
+        {
+            $scope.globalArticles.splice(i,1);
+            console.log("====" + i + "----" + id + "   " + $scope.globalArticles[i]['id']);
+        }
+    }
 }
     
-
+var getTopArticle = function(categoryName){
+    var retArticle;
+    $scope.globalArticles.forEach(function(curArticle){
+       if (curArticle['ourCategory'] == categoryName)
+       {
+            if (curArticle['ourChoice'] == 1) return curArticle['id'];
+            retArticle = curArticle;
+       }
+    })
+    if (retArticle) return retArticle['id'];
+    else return 0;
+}
 
 
 ////////////////////////////////////////
