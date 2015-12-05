@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('fashionMeAppApp', [
+  .module('suitMeApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -21,12 +21,12 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
+        controller: 'MainController',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
+      .when('/finder', {
+        templateUrl: 'views/finder.html',
+        controller: 'FinderController',
         controllerAs: 'about'
       })
       .otherwise({
