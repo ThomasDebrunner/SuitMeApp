@@ -12,16 +12,10 @@ var gCategories = {
     'socks': ['socks','socken']
     };
 
-var updateDeleteId = function(articleId){
-   console.log(articleId); 
-};
-
-
-$scope.testFunction = function(){
+$scope.updateDeleteId = function(articleId){
     var debug = 1;
     //Delete by id 
-    var id = 'K4452D00F-O11';
-    deleteArticleById(id);
+    deleteArticleById(articleId);
     //////Calculate Rank
     var catigorieList = Object.keys(gCategories);
     console.log(catigorieList);
@@ -56,6 +50,10 @@ $scope.testFunction = function(){
        })
     });
 
+};
+
+
+$scope.testFunction = function(){
 }
 
 
