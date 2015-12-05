@@ -1,4 +1,6 @@
 <div class="small-logo"><img src="/images/logo_suit.png"/></div>
+<button ng-click="testFunction()">=====Test====</button>
+<button ng-click="showRank()">=====showRank====</button>
 <div class="row">
 	<div class="article-row">
 		<div class="class-container class-shirt" ng-repeat="item in globalArticles | filter:{ourCategory:'shirt'} | limitTo:1">
@@ -31,7 +33,7 @@
 		<div class="class-container class-accessories" ng-repeat="item in globalArticles | filter:{ourCategory:'belt'} | limitTo:1">
 			<span class="class-title">Belt</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
-			<div class="class-container-cover">
+			<div class="class-container-cover" ng-click="updateDeleteId({{item.id}})">
 				<div class="class-container-cover-button">Never ever!</div>
 			</div>
 		</div>
