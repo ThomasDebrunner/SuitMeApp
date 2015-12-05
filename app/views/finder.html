@@ -8,7 +8,7 @@
 				<div class="class-container-cover-button">No way!</div>
 			</div>
 		</div>
-		<div class="class-container class-jacket" ng-repeat="item in globalArticles | filter:{ourCategory:'coat'} | limitTo:1">
+		<div class="class-container class-jacket" ng-repeat="item in globalArticles | filter:{ourCategory:'jacket'} | limitTo:1">
 			<span class="class-title">Jacket</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
 			<div class="class-container-cover">
@@ -26,15 +26,16 @@
 			<div class="class-container-cover">
 				<div class="class-container-cover-button">Not if you paid me!</div>
 			</div>
+		</div>
 
 		<div class="class-container class-accessories" ng-repeat="item in globalArticles | filter:{ourCategory:'belt'} | limitTo:1">
-			<span class="class-title">Accessory</span>
+			<span class="class-title">Belt</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
 			<div class="class-container-cover">
 				<div class="class-container-cover-button">Never ever!</div>
 			</div>
 		</div>
-	</div>
+	
 	</div>
 </div>
 

@@ -130,7 +130,7 @@ $scope.globalArticles = [];
 //==================== Init allClasses
 var art1 = getArticle('K4452D00F-O11');
 var art2 = getArticle('SE622D0I1-K11');
-var art3 = getArticle('SE622A07M-C12');
+var art3 = getArticle('SE622A07L-Q11');
 var art4 = getArticle('PI912A06N-802');
 var art5 = getArticle('PI922G01B-Q11');
 var art6 = getArticle('BB182F003-C11');
