@@ -1,15 +1,17 @@
 'use strict';
 
-angular.module('suitMeApp').controller('FinderController', ['$http', function($http){
+angular.module('suitMeApp').controller('FinderController', ['$scope', '$http', function($scope, $http){
 
 var globalvar;
+
+$scope.testCaption='HELLO WORLD'
 
 var updateDeleteId = function(articleId){
     var localVar;
 
 };
 
-var testFunction = function(){
+$scope.testFunction = function(){
     console.log("hi\n");
 }
 
