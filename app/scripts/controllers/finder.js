@@ -13,7 +13,7 @@ var gCategories = {
     };
 
 $scope.updateDeleteId = function(articleId){
-    var debug = 1;
+    var debug = 0;
     //Delete by id 
     deleteArticleById(articleId);
     //////Calculate Rank
@@ -34,14 +34,14 @@ $scope.updateDeleteId = function(articleId){
                 arrayOfResult[0]['data'].forEach(function(recomend){
                    recommondationIds.push(recomend['id']);
                 });
-                console.log(recommondationIds);
+                //console.log(recommondationIds);
                 //Add all recommondations
                 recommondationIds.forEach(function(recomID){
-                    console.log(recomID);
+                    //console.log(recomID);
                     getArticle(recomID).then(function(article){
-                        console.log(article['data']);
+                        //console.log(article['data']);
                         createOrRankByArticle(article);
-                        console.log($scope.globalArticles);
+                        //console.log($scope.globalArticles);
                     });
                 });
             } catch (e)
@@ -144,13 +144,42 @@ var incrementRank = function (id){
 
 var deleteArticleById = function(id){
     var i = $scope.globalArticles.length;
+    //only if more than one article in this category
     while(i--){
-        if ($scope.globalArticles[i] && $scope.globalArticles[i]['id'] == id)
+        var category = $scope.globalArticles[i]['ourCategory'];
+        if ($scope.globalArticles[i] && $scope.globalArticles[i]['id'] == id &&
+            nrOfArticlesInCategory(category) > 1 )
         {
             $scope.globalArticles.splice(i,1);
-            console.log("====" + i + "----" + id + "   " + $scope.globalArticles[i]['id']);
+            setHighestScoreToSelection(category);
         }
     }
+}
+
+var nrOfArticlesInCategory = function(categoryName)
+{
+    var numberOfCategory = 0;
+    $scope.globalArticles.forEach(function(article){
+        if (article['ourCategory'] == categoryName)
+            numberOfCategory++;
+    });
+    return numberOfCategory;
+}
+
+var setHighestScoreToSelection = function(categoryName)
+{
+    var maxRank = 0;
+    var bestArticle;
+    $scope.globalArticles.forEach(function(article){
+        if (article['rank'] > maxRank)
+        {
+            maxRank = article['rank'];
+            bestArticle = article;
+        }
+    });
+    console.log(bestArticle);
+    console.log(bestArticle['rank']);
+    bestArticle['rank'] = 999;
 }
     
 var getTopArticle = function(categoryName){
@@ -195,5 +224,12 @@ $q.all([art1, art2, art3, art4, art5, art6]).then(function(arrayOfResult)
         createOrRankByArticle(initArticle);
          })
         console.log($scope.globalArticles);
+        //set all visible articles to high rank
+        $scope.globalArticles.forEach(function(article){
+        article['rank'] = 999;
+        });
     });
+
+
 }]);
+
