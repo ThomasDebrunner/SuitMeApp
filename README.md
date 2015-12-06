@@ -1,5 +1,6 @@
 ![Logo](https://raw.githubusercontent.com/najiji/SuitMeApp/master/app/images/logo_suit.png)
 # SuitMeApp
+[Live Demo](http://najiji.com/suitmeapp "Live demo")
 
 SuitMeApp is a web application developed at **Disrupt London Hackathon 2015**  that tries to find your optimal outfit based on your choices. It relies on the Zalando API.
 
