@@ -47,11 +47,13 @@ $scope.updateDeleteId = function(articleId){
                 });
             } catch (e)
             {}
-            
+            //Update other global variables
        })
-    });
-
+    })
+            setGlobalPrice();
+            setGlobalLinklist();
 };
+
 
 
 $scope.testFunction = function(){
@@ -180,9 +182,6 @@ var setHighestScoreToSelection = function(categoryName)
             bestArticle = article;
         }
     });
-    console.log(bestArticle['ourCategory']);
-    console.log(bestArticle['id']);
-    console.log(bestArticle['rank']);
     bestArticle['rank'] = 999;
 }
     
@@ -197,6 +196,31 @@ var getTopArticle = function(categoryName){
     })
     if (retArticle) return retArticle['id'];
     else return 0;
+}
+
+var setGlobalPrice = function(){
+    var totalPrice = 0;
+    $scope.globalArticles.forEach(function(article){
+        if (article['rank'] >= 999 )
+        {
+            totalPrice += article['units'][0]['price']['value'];
+        }
+    });
+    $scope.totalPrice = totalPrice;
+    console.log(totalPrice);
+}
+
+
+var setGlobalLinklist = function(){
+    var linkArray = [];
+    $scope.globalArticles.forEach(function(article){
+        if (article['rank'] >= 999 )
+        {
+            linkArray.push( article['shopUrl']);
+        }
+    });
+    $scope.linkArray = linkArray;
+    console.log(linkArray);
 }
 
 $scope.showRank = function()
