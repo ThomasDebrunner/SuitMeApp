@@ -5,7 +5,7 @@ angular.module('suitMeApp').controller('FinderController', ['$scope', '$http', '
 
 var gCategories = {
     'belt' : [ 'belt','guertel'], 
-    'jacket': ['coat', 'mantel','jacket'], 
+    'jacket': ['sakko', 'coat', 'mantel','jacket'], 
     'shirt': ['shirt','hemd'], 
     'trousers': ['trousers', 'pants', 'hosen'], 
     'shoe': ['shoes', 'schuhe'], 
@@ -13,6 +13,7 @@ var gCategories = {
     };
 
 $scope.updateDeleteId = function(articleId){
+    console.log(articleId);
     var debug = 0;
     //Delete by id 
     deleteArticleById(articleId);
@@ -151,6 +152,7 @@ var deleteArticleById = function(id){
         if ($scope.globalArticles[i] && $scope.globalArticles[i]['id'] == id &&
             nrOfArticlesInCategory(category) > 1 )
         {
+            console.log(category);
             $scope.globalArticles.splice(i,1);
             setHighestScoreToSelection(category);
         }
@@ -172,13 +174,14 @@ var setHighestScoreToSelection = function(categoryName)
     var maxRank = 0;
     var bestArticle;
     $scope.globalArticles.forEach(function(article){
-        if (article['rank'] > maxRank)
+        if (article['rank'] > maxRank && article['ourCategory'] == categoryName)
         {
             maxRank = article['rank'];
             bestArticle = article;
         }
     });
-    console.log(bestArticle);
+    console.log(bestArticle['ourCategory']);
+    console.log(bestArticle['id']);
     console.log(bestArticle['rank']);
     bestArticle['rank'] = 999;
 }
@@ -199,7 +202,7 @@ var getTopArticle = function(categoryName){
 $scope.showRank = function()
 {
     $scope.globalArticles.forEach(function(article){
-        console.log(article['rank']);
+        console.log(article['id'] + " " + article['ourCategory'] + " " + article['rank']);
     });
 }
 
