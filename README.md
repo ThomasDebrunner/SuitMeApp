@@ -1,12 +1,19 @@
-# fashion-me-app
+![Logo](https://raw.githubusercontent.com/najiji/SuitMeApp/master/app/images/logo_suit.png)
+# SuitMeApp
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.14.0.
+SuitMeApp is a web application developed at **Disrupt London Hackathon 2015**  that tries to find your optimal outfit based on your choices. It relies on the Zalando API.
+
 
 ## Build & development
+**Building instructions**
 
-Run `grunt` for building and `grunt serve` for preview.
+1. clone repository
+2. make sure your build system has installed `nodeJS`, `npm`, `bower`, `grunt-cli`, `sass` and `compass`.
+3. `cd` into directory
+4. Run `npm install` follwed by `bower install`
+5. Run `grunt serve` for preview, `grunt build` for production build
 
-## Testing
+## License
+MIT
 
-Running `grunt test` will run the unit tests with karma.
+
