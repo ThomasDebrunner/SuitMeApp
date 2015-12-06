@@ -1,4 +1,5 @@
 <div class="small-logo"><img src="/images/logo_suit.png"/></div>
+<div class="mobile-placeholder"></div>
 <div class="order-panel">
 <span class="pricetag">£231</span><br>
 <button class='btn btn-primary'>Order now</button>
@@ -11,15 +12,21 @@
 		<div class="class-container class-shirt" ng-repeat="item in globalArticles | orderBy:'-rank' | filter:{ourCategory:'shirt'} | limitTo:1">
 			<span class="class-title">Shirt</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
-			<div class="class-container-cover" ng-click="updateDeleteId(item.id)">
+			<div class="class-container-cover-delete" ng-click="updateDeleteId(item.id)">
 				<div class="class-container-cover-button">No way!</div>
+			</div>
+			<div class="class-container-cover-info" ng-click="showDetail(item.id)">
+				<div class="class-container-cover-button">More Information</div>
 			</div>
 		</div>
 		<div class="class-container class-jacket" ng-repeat="item in globalArticles | orderBy:'-rank'| filter:{ourCategory:'jacket'} | limitTo:1">
 			<span class="class-title">Jacket</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
-			<div class="class-container-cover" ng-click="updateDeleteId(item.id)">
+			<div class="class-container-cover-delete" ng-click="updateDeleteId(item.id)">
 				<div class="class-container-cover-button">No Chance!</div>
+			</div>
+			<div class="class-container-cover-info" ng-click="showDetail(item.id)">
+				<div class="class-container-cover-button">More Information</div>
 			</div>
 		</div>
 	</div>
@@ -30,16 +37,22 @@
 		<div class="class-container class-trousers" ng-repeat="item in globalArticles | orderBy:'-rank'| filter:{ourCategory:'trousers'} | limitTo:1">
 			<span class="class-title">Trousers</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
-			<div class="class-container-cover" ng-click="updateDeleteId(item.id)">
+			<div class="class-container-cover-delete" ng-click="updateDeleteId(item.id)">
 				<div class="class-container-cover-button">Not if you paid me!</div>
+			</div>
+			<div class="class-container-cover-info" ng-click="showDetail(item.id)">
+				<div class="class-container-cover-button">More Information</div>
 			</div>
 		</div>
 
 		<div class="class-container class-accessories" ng-repeat="item in globalArticles | orderBy:'-rank'| filter:{ourCategory:'belt'} | limitTo:1">
 			<span class="class-title">Belt</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
-			<div class="class-container-cover" ng-click="updateDeleteId(item.id)">
+			<div class="class-container-cover-delete" ng-click="updateDeleteId(item.id)">
 				<div class="class-container-cover-button">Never ever!</div>
+			</div>
+			<div class="class-container-cover-info" ng-click="showDetail(item.id)">
+				<div class="class-container-cover-button">More Information</div>
 			</div>
 		</div>
 	
@@ -51,15 +64,21 @@
 		<div class="class-container class-shoes" ng-repeat="item in globalArticles | orderBy:'-rank'| filter:{ourCategory:'shoe'} | limitTo:1">
 			<span class="class-title">Shoes</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
-			<div class="class-container-cover" ng-click="updateDeleteId(item.id)">
+			<div class="class-container-cove-deleter" ng-click="updateDeleteId(item.id)">
 				<div class="class-container-cover-button">Absolutely not!</div>
+			</div>
+			<div class="class-container-cover-info" ng-click="showDetail(item.id)">
+				<div class="class-container-cover-button">More Information</div>
 			</div>
 		</div>
 		<div class="class-container class-socks" ng-repeat="item in globalArticles | orderBy:'-rank'| filter:{ourCategory:'socks'} | limitTo:1">
 			<span class="class-title">Socks</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
-			<div class="class-container-cover" ng-click="updateDeleteId(item.id)">
+			<div class="class-container-cover-delete" ng-click="updateDeleteId(item.id)">
 				<div class="class-container-cover-button">No! No! No!</div>
+			</div>
+			<div class="class-container-cover-info" ng-click="showDetail(item.id)">
+				<div class="class-container-cover-button">More Information</div>
 			</div>
 		</div>
 	</div>
