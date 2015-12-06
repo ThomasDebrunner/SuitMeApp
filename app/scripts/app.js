@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'vModal'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -32,5 +33,11 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+}).factory('detailModal', function (vModal) {
+  return vModal({
+    controller: 'DetailModalController',
+    controllerAs: 'ModalController',
+    templateUrl: 'views/detailmodal.html'
+  });
 });
 

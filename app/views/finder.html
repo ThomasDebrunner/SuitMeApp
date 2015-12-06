@@ -64,7 +64,7 @@
 		<div class="class-container class-shoes" ng-repeat="item in globalArticles | orderBy:'-rank'| filter:{ourCategory:'shoe'} | limitTo:1">
 			<span class="class-title">Shoes</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
-			<div class="class-container-cove-deleter" ng-click="updateDeleteId(item.id)">
+			<div class="class-container-cover-delete" ng-click="updateDeleteId(item.id)">
 				<div class="class-container-cover-button">Absolutely not!</div>
 			</div>
 			<div class="class-container-cover-info" ng-click="showDetail(item.id)">

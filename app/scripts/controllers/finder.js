@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('suitMeApp').controller('FinderController', ['$scope', '$http', '$q', function($scope, $http, $q){
+angular.module('suitMeApp').controller('FinderController', ['$scope', '$http', '$q', 'detailModal', function($scope, $http, $q, detailModal){
 
 
 var gCategories = {
@@ -204,6 +204,10 @@ $scope.showRank = function()
     $scope.globalArticles.forEach(function(article){
         console.log(article['id'] + " " + article['ourCategory'] + " " + article['rank']);
     });
+}
+
+$scope.showDetail = function(){
+    detailModal.activate();
 }
 
 ////////////////////////////////////////
