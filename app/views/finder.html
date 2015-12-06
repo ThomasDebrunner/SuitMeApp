@@ -8,14 +8,14 @@
 <button ng-click="showRank()">=====showRank====</button>
 <div class="row">
 	<div class="article-row">
-		<div class="class-container class-shirt" ng-repeat="item in globalArticles | orderBy:'rank' | filter:{ourCategory:'shirt'} | limitTo:1">
+		<div class="class-container class-shirt" ng-repeat="item in globalArticles | orderBy:'-rank' | filter:{ourCategory:'shirt'} | limitTo:1">
 			<span class="class-title">Shirt</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
 			<div class="class-container-cover" ng-click="updateDeleteId(item.id)">
 				<div class="class-container-cover-button">No way!</div>
 			</div>
 		</div>
-		<div class="class-container class-jacket" ng-repeat="item in globalArticles | orderBy:'rank'| filter:{ourCategory:'jacket'} | limitTo:1">
+		<div class="class-container class-jacket" ng-repeat="item in globalArticles | orderBy:'-rank'| filter:{ourCategory:'jacket'} | limitTo:1">
 			<span class="class-title">Jacket</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
 			<div class="class-container-cover" ng-click="updateDeleteId(item.id)">
@@ -27,7 +27,7 @@
 
 <div class="row">
 	<div class="article-row">
-		<div class="class-container class-trousers" ng-repeat="item in globalArticles | orderBy:'rank'| filter:{ourCategory:'trousers'} | limitTo:1">
+		<div class="class-container class-trousers" ng-repeat="item in globalArticles | orderBy:'-rank'| filter:{ourCategory:'trousers'} | limitTo:1">
 			<span class="class-title">Trousers</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
 			<div class="class-container-cover" ng-click="updateDeleteId(item.id)">
@@ -35,7 +35,7 @@
 			</div>
 		</div>
 
-		<div class="class-container class-accessories" ng-repeat="item in globalArticles | orderBy:'rank'| filter:{ourCategory:'belt'} | limitTo:1">
+		<div class="class-container class-accessories" ng-repeat="item in globalArticles | orderBy:'-rank'| filter:{ourCategory:'belt'} | limitTo:1">
 			<span class="class-title">Belt</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
 			<div class="class-container-cover" ng-click="updateDeleteId(item.id)">
@@ -48,14 +48,14 @@
 
 <div class="row">
 	<div class="article-row">
-		<div class="class-container class-shoes" ng-repeat="item in globalArticles | orderBy:'rank'| filter:{ourCategory:'shoe'} | limitTo:1">
+		<div class="class-container class-shoes" ng-repeat="item in globalArticles | orderBy:'-rank'| filter:{ourCategory:'shoe'} | limitTo:1">
 			<span class="class-title">Shoes</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
 			<div class="class-container-cover" ng-click="updateDeleteId(item.id)">
 				<div class="class-container-cover-button">Absolutely not!</div>
 			</div>
 		</div>
-		<div class="class-container class-socks" ng-repeat="item in globalArticles | orderBy:'rank'| filter:{ourCategory:'socks'} | limitTo:1">
+		<div class="class-container class-socks" ng-repeat="item in globalArticles | orderBy:'-rank'| filter:{ourCategory:'socks'} | limitTo:1">
 			<span class="class-title">Socks</span>
 			<img ng-src="{{item.media.images[0].mediumHdUrl}}"></img>
 			<div class="class-container-cover" ng-click="updateDeleteId(item.id)">
