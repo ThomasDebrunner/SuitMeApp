@@ -262,6 +262,8 @@ $q.all([art1, art2, art3, art4, art5, art6]).then(function(arrayOfResult)
         $scope.globalArticles.forEach(function(article){
         article['rank'] = 999;
         });
+        setGlobalPrice();
+        setGlobalLinklist();
     });
 
 
