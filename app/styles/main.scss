@@ -134,6 +134,7 @@ body {
   border: 1px solid #EEE;
   width: 300px;
   margin: 2px;
+  height: 350px;
   background: #FFFFFF;
   display: inline-block;
   vertical-align:top;
@@ -198,5 +199,26 @@ body {
   &>img{
     width: 150px;
     height: 150px;
+  }
+}
+
+.order-panel{
+  position: fixed;
+  right: 50px;
+  top: 50px;
+  height: 100px;
+
+  &>button{
+    font-family: "Helvetica Neue", "Tahoma", "Geneva", sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    background: #222;
+    border: none;
+  }
+
+  .pricetag{
+    font-family: "Helvetica Neue", "Tahoma", "Geneva", sans-serif;
+    font-weight: 200;
+    font-size: 3em;
   }
 }
