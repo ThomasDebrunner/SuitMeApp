@@ -4,7 +4,7 @@
 <span class="pricetag">£{{totalPrice}}</span><br>
 
 <span ng-if="showLinks" class="order-description">Unfortunately, the Zalando API does not support direct ordering (yet). You have to order manually.
-	<span class="product-link" ng-repeat="link in linkArray"><a href="{{link}}">Zalando link</a></span>
+	<span  ng-repeat="link in linkArray"><a  class="product-link" href="{{link}}">Zalando link</a></span>
 </span>
 
 <button class='btn btn-primary' ng-click="orderProducts()">Order now</button>

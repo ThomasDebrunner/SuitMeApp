@@ -221,6 +221,7 @@ body {
   }
 }
 
+
 .order-panel{
   position: fixed;
   right: 50px;
@@ -242,11 +243,20 @@ body {
   }
 }
 
+@media screen and (max-width: 1024px) {
+    .small-logo {
+        display: none;
+    }
+    .order-panel {
+      position:absolute;
+    }
+}
+
 
 .order-description{
   display:block;
-  width: 100px;
-  background: #fff5c7;
+  width: 300px;
+  background: #fff;
   color: #222;
   padding: 5px;
 }
@@ -254,8 +264,15 @@ body {
 .product-link {
    background: #FFF;
    padding: 10px;
+   margin: 1px;
+   border: 1px solid #EEE;
    list-style: none;
    display: block;
+   &:hover{
+    color: #FFF;
+    background: #222;
+    text-decoration: none;
+   }
 }
 
 
@@ -263,7 +280,7 @@ body {
     .mobile-placeholder {
         display: block;
         width: 100%;
-        height: 160px;
+        height: 200px;
     }
 }
 
