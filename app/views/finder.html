@@ -5,8 +5,6 @@
 <button class='btn btn-primary'>Order now</button>
 </div>
 
-<button ng-click="testFunction()">=====Test====</button>
-<button ng-click="showRank()">=====showRank====</button>
 <div class="row">
 	<div class="article-row">
 		<div class="class-container class-shirt" ng-repeat="item in globalArticles | orderBy:'-rank' | filter:{ourCategory:'shirt'} | limitTo:1">
