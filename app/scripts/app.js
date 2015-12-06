@@ -38,6 +38,7 @@ angular
     controller: 'DetailModalController',
     controllerAs: 'ModalController',
     templateUrl: 'views/detailmodal.html'
+    
   });
 });
 

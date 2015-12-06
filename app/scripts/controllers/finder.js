@@ -208,6 +208,7 @@ var setGlobalPrice = function(){
     });
     $scope.totalPrice = totalPrice;
     console.log(totalPrice);
+    
 }
 
 
@@ -230,8 +231,9 @@ $scope.showRank = function()
     });
 }
 
-$scope.showDetail = function(){
-    detailModal.activate();
+$scope.showDetail = function(id){
+    console.log(detailModal);
+    detailModal.activate(id);
 }
 
 ////////////////////////////////////////
