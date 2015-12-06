@@ -236,6 +236,16 @@ $scope.showDetail = function(id){
     detailModal.activate(id);
 }
 
+$scope.orderProducts = function(){
+    if($scope.showLinks){
+        $scope.showLinks = false;
+    }
+    else{
+         $scope.showLinks = true;
+    }
+    
+}
+
 ////////////////////////////////////////
 ///// INIT
 ////////////////////////////////////////

@@ -243,6 +243,22 @@ body {
 }
 
 
+.order-description{
+  display:block;
+  width: 100px;
+  background: #fff5c7;
+  color: #222;
+  padding: 5px;
+}
+
+.product-link {
+   background: #FFF;
+   padding: 10px;
+   list-style: none;
+   display: block;
+}
+
+
 @media screen and (max-width: 1024px) {
     .mobile-placeholder {
         display: block;
