@@ -143,6 +143,7 @@ var incrementRank = function (id){
 }
 
 var deleteArticleById = function(id){
+    console.log("delete: " + id);
     var i = $scope.globalArticles.length;
     //only if more than one article in this category
     while(i--){
